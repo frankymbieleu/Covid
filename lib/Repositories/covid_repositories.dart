@@ -29,7 +29,7 @@ class CovidRepositories {
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
       var summaryDto = data['Countries'];
-      log('summary : $summaryDto');
+     // log('summary : $summaryDto');
       List<Countries> countries = summaryDto
           .map<Countries>((json) => Countries.fromJson(json))
           .toList();

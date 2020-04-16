@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    CovidRepositories().fetchCovidGlobal();
+    //CovidRepositories().fetchCovidCountries();
     super.initState();
     _covidBloc = BlocProvider.of<CovidBloc>(context);
     _covidBloc.add(FetchCovidGlobal());
@@ -64,8 +64,20 @@ class _MyHomePageState extends State<MyHomePage> {
             global: state.global,
           );
         }
-        return Container(
-          child: Text('totoaaaaaaaaaaaaaaaaaaaaaaaa'),
+        return Padding(
+          padding: const EdgeInsets.only(top: 300),
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Text(
+                  'Frank searching...',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20, color: Colors.lightBlue),
+                ),
+                CircularProgressIndicator(),
+              ],
+            ),
+          ),
         );
       },
     ));

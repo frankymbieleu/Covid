@@ -54,7 +54,7 @@ class _DetailCountryState extends State<DetailCountry> {
                   ),
                   Positioned(
                       top: 40,
-                      left: 200,
+                      left: 180,
                       child: Text(
                         'Rester à la maison\n Franky Mbieleu❤\n\n ${widget.countries.country}\n we love❤😘',
                         style: TextStyle(

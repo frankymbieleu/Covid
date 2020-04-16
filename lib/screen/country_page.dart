@@ -9,12 +9,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dashboard_covid.dart';
 import 'list_countries.dart';
 
-class MyHomePage extends StatefulWidget {
+class MyCountryPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyCountryPageState createState() => _MyCountryPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyCountryPageState extends State<MyCountryPage> {
   CountryBloc _countryBloc;
 
   @override
@@ -58,8 +58,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 countries: state.countries,
               );
             }
-            return Container(
-              child: Text('totoaaaaaaaaaaaaaaaaaaaaaaaa'),
+            return Padding(
+              padding: const EdgeInsets.only(top: 300),
+              child: Center(
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      'Frank searching...',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 20, color: Colors.lightBlue),
+                    ),
+                    CircularProgressIndicator(),
+                  ],
+                ),
+              ),
             );
           },
         ));

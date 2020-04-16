@@ -1,10 +1,14 @@
+import 'package:covid/bloc/country/covi_country_bloc.dart';
+import 'package:covid/bloc/covid_bloc.dart';
 import 'package:covid/model/global.dart';
 import 'package:covid/widget/card.dart';
 import 'package:covid/widget/clipPath.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
+import 'country_page.dart';
 import 'list_countries.dart';
 
 class DashboardCovid extends StatefulWidget {
@@ -54,8 +58,8 @@ class _DashboardCovidState extends State<DashboardCovid> {
                     ),
                   ),
                   Positioned(
-                      top: 90,
-                      left: 200,
+                      top: 70,
+                      left: 180,
                       child: Text(
                         'Rester à la maison\n Franky Mbieleu❤',
                         style: TextStyle(
@@ -168,9 +172,12 @@ class _DashboardCovidState extends State<DashboardCovid> {
           Padding(
             padding: const EdgeInsets.all(15),
             child: GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (_){
-                  return ListCountries();
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return BlocProvider(
+                    create: (context) => CountryBloc(),
+                    child: MyCountryPage(),
+                  );
                 }));
               },
               child: Row(

@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:covid/Repositories/covid_repositories.dart';
+import 'package:covid/model/const.dart';
 import 'package:covid/model/country.dart';
 import 'package:covid/widget/country_item.dart';
 import 'package:flutter/material.dart';
@@ -14,12 +16,7 @@ class ListCountries extends StatefulWidget {
 }
 
 class _ListCountriesState extends State<ListCountries> {
-  List<Color> color = [
-    Colors.green,
-    Colors.orange,
-    Colors.amber,
-    Colors.lightBlue
-  ];
+  var items = List<Countries>();
 
   @override
   void initState() {
@@ -27,7 +24,6 @@ class _ListCountriesState extends State<ListCountries> {
     super.initState();
     items.addAll(widget.countries);
   }
-  var items = List<Countries>();
 
   void filterSearchResults(String query) {
     List<Countries> dummySearchList = List<Countries>();
@@ -35,7 +31,7 @@ class _ListCountriesState extends State<ListCountries> {
     if (query.isNotEmpty) {
       List<Countries> dummyListData = List<Countries>();
       dummySearchList.forEach((item) {
-        if (item.country == query) {
+        if (item.country.toLowerCase().contains(query)) {
           dummyListData.add(item);
         }
       });
@@ -51,7 +47,6 @@ class _ListCountriesState extends State<ListCountries> {
       });
     }
   }
-
 
   var rdn = new Random();
   TextEditingController editingController = TextEditingController();
@@ -85,7 +80,7 @@ class _ListCountriesState extends State<ListCountries> {
                   itemCount: items.length,
                   itemBuilder: (context, int index) {
                     return CountryItem(
-                      countries: items[index],
+                      countries:items[index],
                       color: color[rdn.nextInt(color.length)],
                     );
                   }),
