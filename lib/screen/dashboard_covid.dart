@@ -72,8 +72,8 @@ class _DashboardCovidState extends State<DashboardCovid> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          Container(
+            padding: EdgeInsets.only(bottom: 8),
             child: Text(
               'Total Number today :',
               textAlign: TextAlign.center,
