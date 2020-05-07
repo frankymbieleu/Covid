@@ -23,6 +23,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: TextTheme(),
+        buttonTheme:ButtonThemeData()
       ),
       home: BlocProvider(
         create: (context) => CovidBloc(),
