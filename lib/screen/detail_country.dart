@@ -33,13 +33,7 @@ class _DetailCountryState extends State<DetailCountry> {
               height: 250,
               width: double.infinity,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [
-                    Color(0xFF3383CD),
-                    Color(0xFF11249F),
-                  ])),
+                color: Color(0xFF0D8E53),),
               child: Stack(
                 children: <Widget>[
                   Padding(
@@ -72,7 +66,7 @@ class _DetailCountryState extends State<DetailCountry> {
             child: Text(
               'Total Number today :',
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,color: Theme.of(context).primaryColor),
             ),
           ),
           Card(
@@ -122,7 +116,7 @@ class _DetailCountryState extends State<DetailCountry> {
                     DateTime.parse(widget.countries.date),
                   ),
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,color: Theme.of(context).primaryColor),
             ),
           ),
           Card(

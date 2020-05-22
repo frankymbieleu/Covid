@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'DancingScript',
           textTheme: TextTheme(
               body1: TextStyle(color: Theme.of(context).primaryColor),display1:TextStyle(color: Theme.of(context).primaryColor,fontSize: 15), ),
           primaryColor: Color(0xFF0D8E53),

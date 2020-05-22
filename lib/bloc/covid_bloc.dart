@@ -18,7 +18,7 @@ class CovidBloc extends Bloc<CovidEvent, CovidGlobalState> {
         final global = await covidRepositories.fetchCovidGlobal();
         yield GlobalLoadingSuccess(global: global);
       } catch (_) {
-        yield GlobalLoadingError(error: "Corona fait tu n'a pas de connexion hein 😂😂😂");
+        yield GlobalLoadingError(error: "Corona fait tu n'as pas de connexion hein!!! 😂😂😂");
       }
     }
   }

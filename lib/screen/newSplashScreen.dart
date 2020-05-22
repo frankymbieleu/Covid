@@ -41,6 +41,7 @@ class _NewSplashScreenState extends State<NewSplashScreen> {
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.italic,
+                  fontFamily: 'DancingScript',
                   color: Color(0xFF0D8E53),
                 ),
               ),

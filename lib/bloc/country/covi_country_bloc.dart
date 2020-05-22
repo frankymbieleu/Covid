@@ -20,7 +20,7 @@ class CountryBloc extends Bloc<CovidEvent, CountryState> {
         final countries = await covidRepositories.fetchCovidCountries();
         yield CountriesListLoadingSuccess(countries: countries);
       } catch (_) {
-        yield CountriesLoadingError(error: "Corona fait tu n'a pas de connexion hein 😂😂😂");
+        yield CountriesLoadingError(error: "Corona fait tu n'as pas de connexion hein!!! 😂😂😂");
       }
     }
   }
