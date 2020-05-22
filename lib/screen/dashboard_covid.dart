@@ -239,11 +239,6 @@ class _DashboardCovidState extends State<DashboardCovid> {
                     SizedBox(
                       height: 50,
                     ),
-                    RaisedButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (_){
-                        return Prevention();
-                      }));
-                    })
                   ],
                 ));
           }),

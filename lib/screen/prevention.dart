@@ -36,7 +36,7 @@ class Prevention extends StatelessWidget {
                   child: Text('no posts'),
                 );
               }
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
+              Navigator.push(context, MaterialPageRoute(builder: (_) {
                 return MultiBlocProvider(
                   providers: [
                     BlocProvider<CovidBloc>(
