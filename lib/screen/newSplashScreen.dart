@@ -19,48 +19,7 @@ class _NewSplashScreenState extends State<NewSplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: BlocListener<CovidBloc, CovidGlobalState>(
-      listener: (context, state) {
-        if (state is GlobalLoadingError) {
-          Scaffold.of(context).showSnackBar(
-            SnackBar(
-              content: Container(
-                  child: Text(
-                '${state.error}',
-                textAlign: TextAlign.center,
-              )),
-              backgroundColor: Theme.of(context).errorColor,
-              duration: Duration(seconds: 2),
-            ),
-          );
-        } else if (state is GlobalLoadingSuccess) {
-          if (state.global == null) {
-            Center(
-              child: Text('no posts'),
-            );
-          }
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
-            return MultiBlocProvider(
-              providers: [
-                BlocProvider<CovidBloc>(
-                  create: (context) =>
-                      CovidBloc(covidRepositories: CovidRepositories()),
-                ),
-                BlocProvider<CountryBloc>(
-                  create: (context) =>
-                      CountryBloc(covidRepositories: CovidRepositories()),
-                )
-              ],
-              child: DashboardCovid(
-                global: state.global,
-              ),
-            );
-          }));
-        }
-      },
-      child:
-          BlocBuilder<CovidBloc, CovidGlobalState>(builder: (context, state) {
-        return Container(
+        body: Container(
             child: Container(
           height: double.infinity,
           width: double.infinity,
@@ -122,8 +81,7 @@ class _NewSplashScreenState extends State<NewSplashScreen> {
               ],
             ),
           ),
-        ));
-      }),
-    ));
+            ) ));
+
   }
 }
