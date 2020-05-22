@@ -7,6 +7,9 @@ import 'covid_countries_state.dart';
 
 
 class CountryBloc extends Bloc<CovidEvent, CountryState> {
+  final CovidRepositories covidRepositories;
+
+  CountryBloc({this.covidRepositories});
   @override
   CountryState get initialState => CountriesListLoadingSuccess();
 
@@ -14,10 +17,10 @@ class CountryBloc extends Bloc<CovidEvent, CountryState> {
     yield CountriesLoading();
     if (event is FetchCovidCountries) {
       try {
-        final countries = await CovidRepositories().fetchCovidCountries();
+        final countries = await covidRepositories.fetchCovidCountries();
         yield CountriesListLoadingSuccess(countries: countries);
       } catch (_) {
-        yield CountriesLoadingError(error: 'on a pas pu afficher');
+        yield CountriesLoadingError(error: "Corona fait tu n'a pas de connexion hein 😂😂😂");
       }
     }
   }

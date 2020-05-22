@@ -1,34 +1,34 @@
+import 'package:covid/screen/newSplashScreen.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import './screen/home_page.dart';
+
 import 'package:flutter/material.dart';
 
+import 'Repositories/covid_repositories.dart';
 import 'bloc/covid_bloc.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  //SystemChrome.setPreferredOrientations(
+  //[DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    DeviceOrientation.portraitUp;
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: TextTheme(),
-        buttonTheme:ButtonThemeData()
-      ),
+          textTheme: TextTheme(
+              body1: TextStyle(color: Theme.of(context).primaryColor),display1:TextStyle(color: Theme.of(context).primaryColor,fontSize: 15), ),
+          primaryColor: Color(0xFF0D8E53),
+          scaffoldBackgroundColor: Color(0xFFFCFCFC),
+          buttonTheme: ButtonThemeData()),
       home: BlocProvider(
-        create: (context) => CovidBloc(),
-        child: MyHomePage(),
+        create: (context) => CovidBloc(covidRepositories: CovidRepositories()),
+        child: NewSplashScreen(),
       ),
     );
   }

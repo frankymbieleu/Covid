@@ -5,22 +5,22 @@ import 'covid_countries_event.dart';
 import 'covid_global_state.dart';
 
 class CovidBloc extends Bloc<CovidEvent, CovidGlobalState> {
+  final CovidRepositories covidRepositories;
+
+  CovidBloc({this.covidRepositories});
   @override
-  CovidGlobalState get initialState => GlobalLoadingSuccess();
+  CovidGlobalState get initialState => GlobalUninitialized();
 
   Stream<CovidGlobalState> mapEventToState(CovidEvent event) async* {
     yield GlobalLoading();
     if (event is FetchCovidGlobal) {
       try {
-        final global = await CovidRepositories().fetchCovidGlobal();
+        final global = await covidRepositories.fetchCovidGlobal();
         yield GlobalLoadingSuccess(global: global);
       } catch (_) {
-        yield GlobalLoadingError(error: 'on a pas pu afficher');
+        yield GlobalLoadingError(error: "Corona fait tu n'a pas de connexion hein 😂😂😂");
       }
     }
-    /*else if (event is FetchCovidCountries) {
-      yield* _mapLoadCovidCountriesState();
-    }*/
   }
 
   Stream<CovidGlobalState> _mapLoadCovidGlobalState() async* {
