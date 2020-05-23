@@ -14,13 +14,7 @@ class MyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     return Container(
-      width: mediaQuery.size.width / 3.25,
-      //height: mediaQuery.size.height / 3,
-      /*decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [Colors.blue, Colors.yellow])),*/
+      width: mediaQuery.size.width / 3.15,
       child: Card(
         child: Column(
           children: <Widget>[

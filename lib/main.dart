@@ -1,4 +1,5 @@
 import 'package:covid/screen/newSplashScreen.dart';
+import 'package:covid/screen/startApp.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,10 +28,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Color(0xFF0D8E53),
           scaffoldBackgroundColor: Color(0xFFFCFCFC),
           buttonTheme: ButtonThemeData()),
-      home: BlocProvider(
-        create: (context) => CovidBloc(covidRepositories: CovidRepositories()),
-        child: NewSplashScreen(),
-      ),
+      home: StartApp();
     );
   }
 }

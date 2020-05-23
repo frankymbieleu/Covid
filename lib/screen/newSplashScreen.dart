@@ -6,6 +6,7 @@ import 'package:covid/bloc/covid_global_state.dart';
 import 'package:covid/screen/prevention.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'dashboard_covid.dart';
 
@@ -15,6 +16,12 @@ class NewSplashScreen extends StatefulWidget {
 }
 
 class _NewSplashScreenState extends State<NewSplashScreen> {
+
+
+setValueShare() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setBool('startApps', false);
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,13 +41,14 @@ class _NewSplashScreenState extends State<NewSplashScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 50),
+              padding: const EdgeInsets.only(top: 40),
               child: Text(
-                "FRANKY MBIELEU",
+                "FRANKY MBIELEU \n ❤❤❤",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
+                 // fontStyle: FontStyle.italic,
                   fontFamily: 'DancingScript',
                   color: Color(0xFF0D8E53),
                 ),
@@ -55,6 +63,7 @@ class _NewSplashScreenState extends State<NewSplashScreen> {
                   ),
                   color: Theme.of(context).primaryColor,
                   onPressed: () {
+                    setValueShare();
                     Navigator.push(context, MaterialPageRoute(builder: (_) {
                       return MultiBlocProvider(
                         providers: [
@@ -82,7 +91,7 @@ class _NewSplashScreenState extends State<NewSplashScreen> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(25),
+                  padding: EdgeInsets.only(top: 25),
                   child: Text(
                     "FrankCovid 2020 ❤",
                     textAlign: TextAlign.center,

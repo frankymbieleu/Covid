@@ -33,7 +33,8 @@ class _DetailCountryState extends State<DetailCountry> {
               height: 250,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Color(0xFF0D8E53),),
+                color: Color(0xFF0D8E53),
+              ),
               child: Stack(
                 children: <Widget>[
                   Padding(
@@ -66,43 +67,35 @@ class _DetailCountryState extends State<DetailCountry> {
             child: Text(
               'Total Number today :',
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,color: Theme.of(context).primaryColor),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Theme.of(context).primaryColor),
             ),
           ),
           Card(
             elevation: 9,
             child: Container(
-              height: mediaQuery.size.height / 4.25,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.only(top: 8, bottom: 8),
+              height: mediaQuery.size.height / 5.2,
+              child: Row(
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8, right: 2),
-                    child: MyCard(
-                      image: 'death.png',
-                      data: widget.countries.totalDeaths.toString(),
-                      color: Colors.redAccent,
-                      title: 'Total Death',
-                    ),
+                  MyCard(
+                    image: 'death.png',
+                    data: widget.countries.totalDeaths.toString(),
+                    color: Colors.redAccent,
+                    title: 'Total Death',
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 3, right: 2),
-                    child: MyCard(
-                      image: 'sick.png',
-                      data: widget.countries.totalRecovered.toString(),
-                      color: Colors.green,
-                      title: 'Total Recovered',
-                    ),
+                  MyCard(
+                    image: 'sick.png',
+                    data: widget.countries.totalRecovered.toString(),
+                    color: Colors.green,
+                    title: 'Total Recovered',
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 3, right: 8),
-                    child: MyCard(
-                      image: 'malade.png',
-                      data: widget.countries.totalConfirmed.toString(),
-                      color: Colors.orangeAccent,
-                      title: 'Total Confirmed',
-                    ),
+                  MyCard(
+                    image: 'malade.png',
+                    data: widget.countries.totalConfirmed.toString(),
+                    color: Colors.orangeAccent,
+                    title: 'Total Confirmed',
                   ),
                 ],
               ),
@@ -116,43 +109,35 @@ class _DetailCountryState extends State<DetailCountry> {
                     DateTime.parse(widget.countries.date),
                   ),
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,color: Theme.of(context).primaryColor),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Theme.of(context).primaryColor),
             ),
           ),
           Card(
             elevation: 9,
             child: Container(
-              height: mediaQuery.size.height / 4.25,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.only(left: 8, right: 2),
+              height: mediaQuery.size.height / 5.2,
+              child: Row(
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(right: 1),
-                    child: MyCard(
-                      image: 'death.png',
-                      data: widget.countries.newDeaths.toString(),
-                      color: Colors.redAccent,
-                      title: 'New Death',
-                    ),
+                  MyCard(
+                    image: 'death.png',
+                    data: widget.countries.newDeaths.toString(),
+                    color: Colors.redAccent,
+                    title: 'New Death',
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 3, right: 2),
-                    child: MyCard(
-                      image: 'sick.png',
-                      data: widget.countries.newRecovered.toString(),
-                      color: Colors.green,
-                      title: 'New Recovered',
-                    ),
+                  MyCard(
+                    image: 'sick.png',
+                    data: widget.countries.newRecovered.toString(),
+                    color: Colors.green,
+                    title: 'New Recovered',
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 2, right: 8),
-                    child: MyCard(
-                      image: 'malade.png',
-                      data: widget.countries.newConfirmed.toString(),
-                      color: Colors.orangeAccent,
-                      title: 'New Confirmed',
-                    ),
+                  MyCard(
+                    image: 'malade.png',
+                    data: widget.countries.newConfirmed.toString(),
+                    color: Colors.orangeAccent,
+                    title: 'New Confirmed',
                   ),
                 ],
               ),

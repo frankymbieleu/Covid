@@ -12,7 +12,31 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'dashboard_covid.dart';
 
-class Prevention extends StatelessWidget {
+class Prevention extends StatefulWidget {
+  @override
+  _PreventionState createState() => _PreventionState();
+}
+
+class _PreventionState extends State<Prevention> {
+  bool isLoading = false;
+
+  void _gotoDetailsPage(String name) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (ctx) => Scaffold(
+              body: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: Center(
+                  child: Hero(
+                    tag: 'hero detail',
+                    child: Image.asset(name,fit: BoxFit.cover,),
+                  ),
+                ),
+              ),
+            )));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,11 +127,24 @@ class Prevention extends StatelessWidget {
                       runSpacing: 5,
                       spacing: 5,
                       children: <Widget>[
-                        CardPrevention(
-                          link: "assets/covid-imzge1.jpg",
-                        ),
-                        CardPrevention(
-                          link: "assets/covid-imzge2.jpg",
+                        GestureDetector(
+                            child: Hero(
+                              child: CardPrevention(
+                                link: "assets/covid-imzge1.jpg",
+                              ),
+                              tag: 'hero1',
+                            ),
+                            onTap: () =>
+                                _gotoDetailsPage("assets/covid-imzge1.jpg")),
+                        GestureDetector(
+                          onTap: () =>
+                              _gotoDetailsPage("assets/covid-imzge2.jpg"),
+                          child: Hero(
+                            tag: 'hero2',
+                            child: CardPrevention(
+                              link: "assets/covid-imzge2.jpg",
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -188,6 +225,25 @@ class Prevention extends StatelessWidget {
               splashColor: Colors.green,
               onTap: () {
                 BlocProvider.of<CovidBloc>(context)..add(FetchCovidGlobal());
+                setState(() {
+                  isLoading = true;
+                });
+                Future.delayed(Duration(seconds: 15), () {
+                  setState(() {
+                    isLoading = false;
+                    Scaffold.of(context).showSnackBar(
+                      SnackBar(
+                        content: Container(
+                            child: Text(
+                          "Tu es fatigué d'attendre nor!!😂😂\nProbleme de réseau ou peut etre ta connexion est borlèè!!🤣🤣🤣",
+                          textAlign: TextAlign.center,
+                        )),
+                        backgroundColor: Theme.of(context).errorColor,
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                  });
+                });
               },
               child: Card(
                 color: Color(0xFFFCFCFC),
@@ -204,10 +260,14 @@ class Prevention extends StatelessWidget {
                             fontSize: 20,
                             color: Theme.of(context).primaryColor),
                       ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                      isLoading
+                          ? CircularProgressIndicator(
+                              backgroundColor: Theme.of(context).primaryColor,
+                            )
+                          : Icon(
+                              Icons.arrow_forward_ios,
+                              color: Theme.of(context).primaryColor,
+                            ),
                     ],
                   ),
                 ),
