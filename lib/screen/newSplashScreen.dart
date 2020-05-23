@@ -70,7 +70,7 @@ void initState() {
                   color: Theme.of(context).primaryColor,
                   onPressed: () {
                    // setValueShare();
-                    Navigator.push(context, MaterialPageRoute(builder: (_) {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
                       return MultiBlocProvider(
                         providers: [
                           BlocProvider<CovidBloc>(

@@ -28,7 +28,7 @@ class _StartAppState extends State<StartApp> {
   }
 
   void navigationNewSplashScreen() {
-    Navigator.push(context, MaterialPageRoute(builder: (_) {
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
       return BlocProvider(
         create: (context) => CovidBloc(covidRepositories: CovidRepositories()),
         child: NewSplashScreen(),
@@ -37,7 +37,7 @@ class _StartAppState extends State<StartApp> {
   }
 
   void navigationPrevention() {
-    Navigator.push(context, MaterialPageRoute(builder: (_) {
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
       return BlocProvider(
         create: (context) => CovidBloc(covidRepositories: CovidRepositories()),
         child: Prevention(),
