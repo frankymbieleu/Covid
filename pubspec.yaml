@@ -68,6 +68,7 @@ flutter:
     - assets/covid-imzge2.jpg
     - assets/doctor.gif
     - assets/BG_prevention.PNG
+    - assets/ic_launcher.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

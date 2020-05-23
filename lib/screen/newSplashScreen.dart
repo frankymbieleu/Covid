@@ -22,7 +22,13 @@ setValueShare() async {
   final prefs = await SharedPreferences.getInstance();
   await prefs.setBool('startApps', false);
 }
-  @override
+void initState() {
+  // TODO: implement initState
+  super.initState();
+  setValueShare();
+}
+
+@override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
@@ -63,7 +69,7 @@ setValueShare() async {
                   ),
                   color: Theme.of(context).primaryColor,
                   onPressed: () {
-                    setValueShare();
+                   // setValueShare();
                     Navigator.push(context, MaterialPageRoute(builder: (_) {
                       return MultiBlocProvider(
                         providers: [
